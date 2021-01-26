@@ -31,7 +31,7 @@ def make_announcement(channel, message):
 
 # manually send a message to a channel (like a management command)
 if len(argv) > 1 and argv[1] == "send":
-    make_announcement(argv[3], argv[4])
+    make_announcement(argv[2], argv[3])
     exit(0)
 
 while True:
