@@ -1,22 +1,13 @@
 from slack_sdk import WebClient
-from datetime import datetime
 from time import sleep
 from dotenv import load_dotenv
 from envs import env
-
 from sys import argv
-
 import json
 
 config = json.load(open("config.json", "r"))
 announcements = json.load(open("announcements.json", "r"))
 channels = config["channels"]
-
-for a in announcements:
-    print(f"Target channel: {a['channel']}")
-    print(f"Day: {a['day']}")
-    print(f"Time: {a['time']}")
-    print(f"Message: {a['message']}")
 
 load_dotenv()
 token = env("SLACK_API_TOKEN")
