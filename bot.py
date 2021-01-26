@@ -1,5 +1,6 @@
 from slack_sdk import WebClient
 from time import sleep
+from datetime import datetime
 from dotenv import load_dotenv
 from envs import env
 from sys import argv
@@ -11,6 +12,7 @@ channels = config["channels"]
 
 load_dotenv()
 token = env("SLACK_API_TOKEN")
+print(token)
 
 client = WebClient(token)
 
@@ -24,6 +26,7 @@ def make_announcement(channel, message):
 if len(argv) > 1 and argv[1] == "send":
     make_announcement(argv[2], argv[3])
     exit(0)
+
 
 while True:
     timestr = datetime.now().strftime("%H%M%S")
