@@ -41,6 +41,12 @@ and then add channels that you would use in the format above.
 
 where the `time` field is just the timestamp without the colons, `day` is the name of the day to post the announcement, and `channel` is the name of the channel that you used in channel.json.
 
+5. Before running the bot, install all pip requirements with
+
+```bash
+pip3 install slack_sdk python-dotenv envs
+```
+
 ### Manually send a message
 
 To manually send a message in a channel, use the following command:
