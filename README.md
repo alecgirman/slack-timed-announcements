@@ -53,4 +53,4 @@ To manually send a message in a channel, use the following command:
 
 `python3 bot.py send general "message"`
 
-Where `general` can be replaced with a name of a channel found in your channels.json.  It is important to include the quotes around the message.
+Where `general` can be replaced with a name of a channel found in your config.json.  It is important to include the quotes around the message.
