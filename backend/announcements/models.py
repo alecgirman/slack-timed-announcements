@@ -4,6 +4,7 @@ from django.db import models
 
 
 class Announcement(models.Model):
+    title = models.CharField(max_length=256)
     day = models.CharField(max_length=10)
     time = models.CharField(max_length=6)
     channel = models.CharField(max_length=32)

@@ -5,4 +5,4 @@ from rest_framework import serializers
 class AnnouncementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Announcement
-        fields = ["day", "time", "channel", "message"]
+        fields = ["title", "day", "time", "channel", "message"]

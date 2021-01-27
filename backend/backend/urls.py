@@ -18,11 +18,11 @@ from django.urls import path, include
 from rest_framework import routers
 from announcements import views
 
-router = routers.DefaultRouter()
-router.register(r"announcements", views.AnnouncementViewSet)
+# router = routers.DefaultRouter()
+# router.register(r"announcements", views.AnnouncementViewSet)
 
 urlpatterns = [
-    path("", include(router.urls)),
+    path("", include("announcements.urls")),
     path("admin/", admin.site.urls),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
 ]
