@@ -8,7 +8,15 @@ To use this on your own server, you must do the following:
 
 1. Create an app in your slack server and register it as a bot.  This gives you the bot API token you will need later.
 
-2. Create a .env file with `SLACK_API_TOKEN=<your bot API token>`
+2. Create a .env file with the following fields
+
+```env
+SLACK_API_TOKEN=<your bot API token>
+UPDATE_INTERVAL=15
+```
+
+where SLACK_API_TOKEN is the bot API token that you are given after registering your app as a bot and UPDATE_INTERVAL is the interval
+in seconds before rereading the announcements.json file.
 
 3. Create a config.json and populate it with channels.  It should look like this:
 
