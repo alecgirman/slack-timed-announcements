@@ -55,6 +55,8 @@ where the `time` field is just the timestamp without the colons, `day` is the na
 pip3 install slack_sdk python-dotenv envs
 ```
 
+6. (optional) Check your time zone configuration.  When I deployed to AWS, AWS was using UTC by default.  To change this, simply run `sudo timedatectl set-timezone EST`
+
 ### Manually send a message
 
 To manually send a message in a channel, use the following command:
