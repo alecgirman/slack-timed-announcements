@@ -11,7 +11,7 @@ channels = config["channels"]
 
 load_dotenv()
 token = env("SLACK_API_TOKEN")
-update_interval = env("UPDATE_INTERVAL", var_type='integer')
+update_interval = env("UPDATE_INTERVAL", var_type="integer")
 client = WebClient(token)
 
 
@@ -21,7 +21,8 @@ def make_announcement(channel, message):
 
 
 def read_announcements():
-    return json.load(open("announcements.json", "r"))
+    with open("announcements.json", "r") as f:
+        return json.load(f)
 
 
 # manually send a message to a channel (like a management command)
