@@ -11,7 +11,7 @@ channels = config["channels"]
 
 load_dotenv()
 token = env("SLACK_API_TOKEN")
-update_interval = env("UPDATE_INTERVAL")
+update_interval = env("UPDATE_INTERVAL", var_type='integer')
 client = WebClient(token)
 
 
@@ -30,6 +30,7 @@ if len(argv) > 1 and argv[1] == "send":
     exit(0)
 
 
+announcements = read_announcements()
 counter = 0
 while True:
     timestr = datetime.now().strftime("%H%M%S")
