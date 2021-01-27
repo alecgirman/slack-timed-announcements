@@ -12,8 +12,6 @@ channels = config["channels"]
 
 load_dotenv()
 token = env("SLACK_API_TOKEN")
-print(token)
-
 client = WebClient(token)
 
 
