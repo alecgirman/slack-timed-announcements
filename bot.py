@@ -45,7 +45,6 @@ while True:
 
     for ann in announcements:
         ann["time"] = ann["time"].replace(":", "")
-        print(ann["time"])
         if ann["time"] == timestr and ann["day"] == daystr:
             make_announcement(ann["channel"], ann["message"])
 
