@@ -15,7 +15,7 @@ DAYS = [(d, d) for d in day_list]
 
 channel_list = ["general", "bot-testing"]
 
-CHANNELS = [(c, c) for c in channel_list]
+CHANNELS = [("#" + c, c) for c in channel_list]
 
 
 class Announcement(models.Model):
