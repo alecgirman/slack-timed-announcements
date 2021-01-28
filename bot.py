@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from envs import env
 from sys import argv
 import json
+import requests
 
 config = json.load(open("config.json", "r"))
 channels = config["channels"]
@@ -12,6 +13,7 @@ channels = config["channels"]
 load_dotenv()
 token = env("SLACK_API_TOKEN")
 update_interval = env("UPDATE_INTERVAL", var_type="integer")
+api_url = env("API_URL")
 client = WebClient(token)
 
 
@@ -21,15 +23,19 @@ def make_announcement(channel, message):
 
 
 def read_announcements():
-    with open("announcements.json", "r") as f:
-        return json.load(f)
+    response = requests.get(api_url)
+
+    if response.status_code == 200:
+        content = response.content.decode("utf-8")
+        return json.loads(content)
+    else:
+        print(f"Error in retrieving announcements, status code {response.status_code}")
 
 
 # manually send a message to a channel (like a management command)
 if len(argv) > 1 and argv[1] == "send":
     make_announcement(argv[2], argv[3])
     exit(0)
-
 
 announcements = read_announcements()
 counter = 0
