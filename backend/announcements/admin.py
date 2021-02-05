@@ -13,7 +13,7 @@ enable_announcement.short_description = "Enable the selected announcements"
 
 
 def disable_announcement(modeladmin, request, queryset):
-    queryset.update(enabled=True)
+    queryset.update(enabled=False)
 
 
 disable_announcement.short_description = "Disable the selected announcements"
