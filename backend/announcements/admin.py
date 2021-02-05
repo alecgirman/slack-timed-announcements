@@ -19,6 +19,20 @@ def disable_announcement(modeladmin, request, queryset):
 disable_announcement.short_description = "Disable the selected announcements"
 
 
+def move_to_general(modeladmin, request, queryset):
+    queryset.update(channel="general")
+
+
+move_to_botlogging.short_description = "Move the selected announcements to #general"
+
+
+def move_to_botlogging(modeladmin, request, queryset):
+    queryset.update(channel="bot-logging")
+
+
+move_to_botlogging.short_description = "Move the selected announcements to #bot-logging"
+
+
 class AnnouncementAdmin(admin.ModelAdmin):
     list_display = ["title", "enabled", "day", "time", "channel", "message"]
     actions = [enable_announcement, disable_announcement]
