@@ -24,3 +24,4 @@ class Announcement(models.Model):
     time = models.TimeField()
     channel = models.CharField(max_length=32, choices=CHANNELS)
     message = models.CharField(max_length=4096)
+    enabled = models.BooleanField(default=True)

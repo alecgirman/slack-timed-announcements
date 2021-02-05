@@ -6,7 +6,7 @@ from announcements.models import Announcement
 
 
 class AnnouncementAdmin(admin.ModelAdmin):
-    list_display = ["title", "day", "time", "channel", "message"]
+    list_display = ["enabled", "title", "day", "time", "channel", "message"]
 
 
 admin.site.register(Announcement, AnnouncementAdmin)
