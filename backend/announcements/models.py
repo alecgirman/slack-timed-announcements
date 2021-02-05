@@ -13,7 +13,7 @@ day_list = [
 ]
 DAYS = [(d, d) for d in day_list]
 
-channel_list = ["general", "bot-testing"]
+channel_list = ["general", "bot-logging"]
 
 CHANNELS = [("#" + c, c) for c in channel_list]
 
