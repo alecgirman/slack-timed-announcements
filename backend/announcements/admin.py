@@ -23,7 +23,7 @@ def move_to_general(modeladmin, request, queryset):
     queryset.update(channel="general")
 
 
-move_to_botlogging.short_description = "Move the selected announcements to #general"
+move_to_general.short_description = "Move the selected announcements to #general"
 
 
 def move_to_botlogging(modeladmin, request, queryset):
@@ -35,7 +35,12 @@ move_to_botlogging.short_description = "Move the selected announcements to #bot-
 
 class AnnouncementAdmin(admin.ModelAdmin):
     list_display = ["title", "enabled", "day", "time", "channel", "message"]
-    actions = [enable_announcement, disable_announcement]
+    actions = [
+        enable_announcement,
+        disable_announcement,
+        move_to_general,
+        move_to_botlogging,
+    ]
 
 
 admin.site.register(Announcement, AnnouncementAdmin)
