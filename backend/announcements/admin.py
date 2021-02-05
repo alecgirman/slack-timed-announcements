@@ -20,7 +20,7 @@ disable_announcement.short_description = "Disable the selected announcements"
 
 
 class AnnouncementAdmin(admin.ModelAdmin):
-    list_display = ["enabled", "title", "day", "time", "channel", "message"]
+    list_display = ["title", "enabled", "day", "time", "channel", "message"]
     actions = [enable_announcement, disable_announcement]
 
 
