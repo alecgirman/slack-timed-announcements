@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django import forms
 
 # Register your models here.
 
@@ -33,6 +34,14 @@ def move_to_botlogging(modeladmin, request, queryset):
 move_to_botlogging.short_description = "Move the selected announcements to #bot-logging"
 
 
+class AnnouncementMessageForm(forms.ModelForm):
+    message = forms.CharField(widget=forms.Textarea)
+
+    class Meta:
+        model = Announcement
+        fields = "__all__"
+
+
 class AnnouncementAdmin(admin.ModelAdmin):
     list_display = ["title", "enabled", "day", "time", "channel", "message"]
     actions = [
@@ -41,6 +50,7 @@ class AnnouncementAdmin(admin.ModelAdmin):
         move_to_general,
         move_to_botlogging,
     ]
+    form = AnnouncementMessageForm
 
 
 admin.site.register(Announcement, AnnouncementAdmin)
